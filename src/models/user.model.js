@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
+import dotenv from "dotenv";
+dotenv.config();
 
 const userSchema = new mongoose.Schema(
   {
@@ -27,10 +29,18 @@ const userSchema = new mongoose.Schema(
     },
     avatar: {
       type: String, //cloudinary url
-      // required: true,
+      required: true,
+    },
+    avatar_id: {
+      type: String,
+      required: true,
     },
     coverImage: {
       type: String,
+    },
+    cover_id: {
+      type: String,
+      required: true,
     },
     watchHistory: [
       {
