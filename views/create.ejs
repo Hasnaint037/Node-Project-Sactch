@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=
+        , initial-scale=1.0"
+        />
+        <title>Document</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <div
+            class="ps-12 pe-16 flex justify-between border-b-2 border-gray-400 pt-4 pb-2"
+        >
+            <div>
+                <h1 class="text-3xl font-semibold">Admin Panel.</h1>
+            </div>
+            <div
+                class="flex w-2/6 flex-row justify-between py-3 font-bold text-md"
+            >
+                <div class="flex gap-4">
+                    <a href="/home">Home</a>
+                    <a href="/product/shop">Products</a>
+                </div>
+                <div class="flex gap-4">
+                    <a href="/product/cart">Cart</a>
+                    <a href="/account">My account</a>
+                </div>
+            </div>
+        </div>
+        <div class="w-full ps-12 pe-16 flex gap-3 mt-6">
+            <div class="relative w-[188px]">
+                <div>
+                    <span class="text-lg font-semibold tracking-tight mt-2"
+                        >All Products</span
+                    >
+                    <a href="/product/create" class="block tracking-tight mt-3"
+                        >Create New Product</a
+                    >
+                </div>
+            </div>
+            <div class="flex flex-col px-5 w-[910px]">
+                <div class="border-b-2 border-gray-300 pb-4">
+                    <h1 class="text-2xl font-semibold">Create New Product</h1>
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold mt-6 px-2">
+                        Product Details
+                    </h2>
+                    <form
+                        action="/product/create"
+                        method="post"
+                        class="px-2"
+                        enctype="multipart/form-data"
+                    >
+                        <div class="mt-5">
+                            <span class="tracking-tight text-sm font-semibold"
+                                >Product Image</span
+                            >
+                            <input
+                                type="file"
+                                class="bg-blue-400 mx-6 w-[210px]"
+                                name="image"
+                            />
+                        </div>
+                        <input
+                            class="bg-red-100 block px-2 py-2 mt-4 w-[330px]"
+                            type="text"
+                            placeholder="Product Name"
+                            name="name"
+                        />
+                        <input
+                            class="bg-red-100 px-2 py-2 mt-3 w-[140px]"
+                            type="text"
+                            placeholder="Product Price"
+                            name="price"
+                        />
+                        <input
+                            class="bg-red-100 ms-3 px-2 py-2 mt-3 w-[140px]"
+                            type="text"
+                            placeholder="Discount Price"
+                            name="discount"
+                        />
+                        <div class="mt-14">
+                            <h2 class="text-xl font-semibold">Panel Details</h2>
+                            <input
+                                class="bg-red-100 px-2 py-2 mt-3 w-[140px]"
+                                type="text"
+                                placeholder="Bg Color"
+                                name="bgcolor"
+                            />
+                            <input
+                                class="bg-red-100 ms-3 px-2 py-2 mt-3 w-[140px]"
+                                type="text"
+                                placeholder="Panel Color"
+                                name="panelcolor"
+                            />
+                            <br />
+                            <input
+                                class="bg-red-100 px-2 py-2 mt-3 w-[140px]"
+                                type="text"
+                                placeholder="Text Color"
+                                name="textcolor"
+                            />
+                        </div>
+                        <input
+                            class="bg-black px-4 py-3 text-white w-[310px] mt-4 cursor-pointer mb-5"
+                            type="submit"
+                            value="Create Product"
+                        />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

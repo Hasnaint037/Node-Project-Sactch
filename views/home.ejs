@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <!-- navbar starts here -->
+        <div
+            class="ps-12 pe-16 flex justify-between border-b-2 border-gray-400 pt-4 pb-2"
+        >
+            <div>
+                <h1 class="text-3xl font-semibold">Shop.</h1>
+            </div>
+            <div
+                class="flex w-2/6 flex-row justify-between py-3 font-bold text-md"
+            >
+                <div class="flex gap-4">
+                    <a href="/home">Home</a>
+                    <a href="/product/shop">Products</a>
+                </div>
+                <div class="flex gap-4">
+                    <a href="/product/cart">Cart</a>
+                    <a href="/account">Myaccount</a>
+                </div>
+            </div>
+        </div>
+        <!-- navbar ends here -->
+
+        <!-- section starts here -->
+        <div class="w-full ps-12 pe-16 flex gap-3 mt-6">
+            <div class="relative w-[188px]">
+                <div>
+                    <span class="text-xl font-semibold">sortby:</span>
+                    <select name="" id="" class="font-bold ps-2">
+                        <option value="">Populart</option>
+                    </select>
+                </div>
+                <div class="mt-7">
+                    <span class="block font-normal">New Collection</span>
+                    <span class="block font-normal">All Products</span>
+                    <span class="block font-normal">Discounted Products</span>
+                </div>
+                <div class="mt-36">
+                    <span class="block font-bold">Filter by:</span>
+                    <span class="block font-normal">Availability</span>
+                    <span class="block font-normal">Discount</span>
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-5 px-5 w-[910px]">
+                <%products.map((product)=>{%>
+                <div class="bg-[<%=product.bgcolor%>] h-70 w-[200px] rounded">
+                    <div class="h-56 flex flex-col justify-center items-center">
+                        <img class="h-48" src="\<%=product.image%>" alt="" />
+                    </div>
+                    <div
+                        class="flex w-full bg-[<%=product.panelcolor%>] justify-between items-center py-2 px-2 h-16 rounded"
+                    >
+                        <div class="text-[<%=product.textcolor%>]">
+                            <p><%=product.name%></p>
+                            <span><%=product.price%>/-</span>
+                            <%if(product.discount){%>
+                            <span
+                                class="bg-[#C5B095] text-sm px-1 ms-2 rounded-xl"
+                                ><%=product.discount%>%</span
+                            >
+                            <%}%>
+                        </div>
+                        <a
+                            href="/product/add-to-cart/<%=product._id%>"
+                            class="bg-white font-bold rounded-[50%] h-7 px-2 pt-[-2px] mt-3 me-[7px]"
+                        >
+                            +
+                        </a>
+                    </div>
+                </div>
+                <%})%>
+            </div>
+        </div>
+        <!-- section ends here -->
+    </body>
+</html>

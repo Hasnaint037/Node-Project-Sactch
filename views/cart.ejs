@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="javascripts/index.js"></script>
+    </head>
+    <body>
+        <div
+            class="ps-12 pe-16 flex justify-between border-b-2 border-gray-400 pt-4 pb-2"
+        >
+            <div>
+                <h1 class="text-3xl font-semibold">Cart.</h1>
+            </div>
+            <div
+                class="flex w-2/6 flex-row justify-between py-3 font-bold text-md"
+            >
+                <div class="flex gap-4">
+                    <a href="/home">Home</a>
+                    <a href="/product/shop">Products</a>
+                </div>
+                <div class="flex gap-4">
+                    <a href="/product/cart">Cart</a>
+                    <a href="/account">Myaccount</a>
+                </div>
+            </div>
+        </div>
+        <%if(cart.length>0){%>
+        <%cart.map((item)=>{%>
+        <div
+            class="flex gap-5 ps-12 pe-16 w-full mt-7 border-b-2 border-gray-300 mt-3 pb-8"
+        >
+            <div class="bg-[<%=item.bgcolor%>] w-[22%] h-[19rem] rounded">
+                <div class="w-full h-[14rem] flex justify-center items-center">
+                    <img class="h-[12rem]" src="\<%=item.image%>" alt="" />
+                </div>
+                <div
+                    class="w-full h-[3rem] text-3 flex gap-20 justify-between items-center bg-[<%=item.panelcolor%>] border px-2"
+                >
+                    <span class="text-[<%=item.textcolor%>]"><%=item.name%></span>
+                    <span><%=item.price%></span>
+                </div>
+                <div
+                    class="flex justify-between px-2 gap-20 text-1 items-center h-[2rem] bg-[<%=item.panelcolor%>] text-[<%=item.textcolor%>]"
+                >
+                    <span>Discount</span>
+                    <span><%=item.discount%></span>
+                </div>
+            </div>
+            <div class="w-[75%] mt-4">
+                <div class="border-b-2 border-gray-400">
+                    <h1 class="text-xl tracking-tight font-semibold">
+                        Price Breakdown
+                    </h1>
+                    <div class="flex justify-between px-3 w-[35%] mt-3">
+                        <span class="text-normal">Total MRP</span>
+                        <span class="text-lg font-semibold"><%=item.price%></span>
+                    </div>
+                    <div class="flex justify-between px-3 w-[35%]">
+                        <span class="text-normal">Discount</span>
+                        <span class="text-lg font-semibold"><%=item.discount%>%</item.discount></span>
+                    </div>
+                    <div class="flex justify-between px-3 w-[35%]">
+                        <span class="text-normal">Platform Fee</span>
+                        <span class="text-lg font-semibold">200</span>
+                    </div>
+                    <div class="flex justify-between px-3 w-[35%] mb-4">
+                        <span class="text-normal">Shipping</span>
+                        <span class="text-lg font-semibold">FREE</span>
+                    </div>
+                </div>
+                <div class="w-full mt-4 mb-3">
+                    <div class="flex justify-between w-[34%]">
+                        <span class="tracking-tight text-lg font-bold"
+                            >Total Amount</span
+                        >
+                        <span class="text-blue-400"><%=(item.price-(item.price*item.discount/100)+200)%></span>
+                    </div>
+                    <div  class="bg-black w-32 mt-3 text-white rounded py-1">
+                        <a class="px-4" href="/product/place-order/<%=item._id%>">
+                        Place Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%})%>
+        <%}else{%>
+            <div class="w-full h-[250px] text-2xl font-semibold text-gray-400 flex justify-center items-center">No Items Addedd</div>
+        <%}%>
+    </body>
+</html>
